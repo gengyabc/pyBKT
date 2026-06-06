@@ -22,7 +22,7 @@ def EM_fit(model, data, tol = None, maxiter = None, parallel = True, fixed = {})
         for j in range(num_subparts):
             result['all_emission_softcounts'][j] = result['all_emission_softcounts'][j].transpose()
 
-        log_likelihoods[i][0] = result['total_loglike']
+        log_likelihoods[i, 0] = float(result['total_loglike'])
 
         if(i > 1 and abs(log_likelihoods[i][0] - log_likelihoods[i-1][0]) < tol):
             break
